@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+
+void setZeros(vector<vector<int>> &matrix) {
+  int no_row = matrix.size() , no_col = matrix[0].size();
+  vector<int> row(no_row, 0);
+  vector<int> column(no_col, 0);
+  for (int i = 0; i < no_row; i++) {
+    for (int j = 0; j < no_col; j++) {
+      if (matrix[i][j] == 0) {
+        column[j] = -1;
+        row[i] = -1;
+      }
+    }
+  }
+  //  make column to zero
+  for (int i = 0; i< no_col ; i++) {
+    if (column[i] == -1) {
+      for (int j = 0; j < matrix.size(); j++) {
+        matrix[j][i] = 0;
+      }
+    }
+  }
+  // row
+  for (int i = 0; i < matrix.size(); i++) {
+    if (row[i] == -1) {
+      for (int j = 0; j < matrix[0].size(); j++) {
+        matrix[i][j] = 0;
+      }
+    }
+  }
+}
